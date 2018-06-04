@@ -39,7 +39,8 @@ while not quit:
         x+=10
         y+=10
         
-##    poly=Polygon(120,40,50,50)
+    poly=Polygon(120,500,50,50)
+    pygame.draw.lines(screen, BLACK, False, poly.path(), 5)
 ##    pygame.draw.aaline(screen, BLACK, (40, 0), (90,230), 5)
 ##    pygame.draw.aalines(screen, BLACK, False, [(0, 80), (50, 90), (200, 80), (220, 30)], 5)
     

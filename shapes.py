@@ -22,12 +22,12 @@ class Rectangle(Shapes):
 
 class Polygon(Shapes):
     def __init__(self,num,size,x=0, y=0):
+        angle = (1 - 2 / num) * 180
         self.angle = angle
         self.size = size
         Shapes.__init__(self,x,y)
-        szog = (1 - 2 / num) * 180
         for _ in range(num):
-             self.turtle.go(size).turn(szog)
+             self.turtle.go(size).turn(angle)
 
 
 
