@@ -1,3 +1,4 @@
+from shapes import Rectangle, Polygon
 import pygame
  
 pygame.init()
@@ -12,7 +13,7 @@ screen_size = (400, 300)
 screen = pygame.display.set_mode(screen_size)
  
 pygame.display.set_caption("Turtle API Example")
- 
+
 quit = False
 clock = pygame.time.Clock()
  
@@ -29,10 +30,18 @@ while not quit:
 
  
     screen.fill(WHITE)
- 
-    pygame.draw.line(screen, BLACK, (0, 0), (50,230), 5)
-    pygame.draw.aaline(screen, BLACK, (40, 0), (90,230), 5)
-    pygame.draw.aalines(screen, BLACK, False, [(0, 80), (50, 90), (200, 80), (220, 30)], 5)
+    x,y,height,width=0,0,20,30
+    for i in range(5):
+        rectangle=Rectangle(height,width,x,y)
+        pygame.draw.lines(screen, BLACK, False, rectangle.path(), 5)
+        height+=10
+        width+=10
+        x+=10
+        y+=10
+        
+##    poly=Polygon(120,40,50,50)
+##    pygame.draw.aaline(screen, BLACK, (40, 0), (90,230), 5)
+##    pygame.draw.aalines(screen, BLACK, False, [(0, 80), (50, 90), (200, 80), (220, 30)], 5)
     
     pygame.display.flip()
  
