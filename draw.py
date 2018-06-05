@@ -1,5 +1,6 @@
 from shapes import Rectangle, Polygon
 import pygame
+import math
  
 pygame.init()
  
@@ -20,7 +21,7 @@ clock = pygame.time.Clock()
 while not quit:
  
     # limit the while loop to a max of 20 times per second.
-    clock.tick(20)
+    clock.tick(30)
      
     for event in pygame.event.get():
         if event.type == pygame.QUIT: # If user clicked close
@@ -31,16 +32,16 @@ while not quit:
  
     screen.fill(WHITE)
     x,y,height,width=0,0,20,30
+    millisecs = pygame.time.get_ticks()
+    expansion = math.sin(millisecs/300)*10
     for i in range(5):
         rectangle=Rectangle(height,width,x,y)
-        pygame.draw.lines(screen, BLACK, False, rectangle.path(), 5)
+        pygame.draw.aalines(screen, BLACK, False, rectangle.path(), 5)
         height+=10
         width+=10
-        x+=10
-        y+=10
+        x+= expansion
+        y+= expansion
         
-    poly=Polygon(120,500,50,50)
-    pygame.draw.lines(screen, BLACK, False, poly.path(), 5)
 ##    pygame.draw.aaline(screen, BLACK, (40, 0), (90,230), 5)
 ##    pygame.draw.aalines(screen, BLACK, False, [(0, 80), (50, 90), (200, 80), (220, 30)], 5)
     
