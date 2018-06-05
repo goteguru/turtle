@@ -19,7 +19,7 @@ clock = pygame.time.Clock()
  
 while not quit:
  
-    # limit the while loop to a max of 10 times per second.
+    # limit the while loop to a max of 20 times per second.
     clock.tick(20)
      
     for event in pygame.event.get():
